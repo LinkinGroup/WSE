@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -19,7 +20,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    @IBAction func buttonClick(sender: UIButton) {
+        Alamofire.request(.GET, "http://mapi.wsi.com.cn:8088/", parameters: ["a": "GetUser"])
+            .responseJSON { resp in
+                print(resp.data)
+                if let JSON = resp.result.value {
+                    print("JSON: \(JSON)")
+                    
+                }
+        }
+    }
 
 }
 
