@@ -1,9 +1,10 @@
-platform :ios, '8.0'
+platform :ios, '9.0'
+use_frameworks!
 
 pod 'FMDB'
 pod 'SDWebImage'
 pod 'MJExtension'
-pod 'AFNetworking'
+pod 'Alamofire', '~> 3.4.1'
 pod 'pop'
 pod 'FCFileManager'
 pod 'SVProgressHUD', '~> 1.1.3'
