@@ -23,7 +23,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonClick(sender: UIButton) {
-        Alamofire.request(.GET, "http://mapi.wsi.com.cn:8088/", parameters: ["a": "GetUser"])
+        let parameters = [
+            "UserName": "bj12.03350.cn",
+            "password": "N22267@",
+            "version": "1.2",
+            "OSType": "iOS"
+        ]
+        Alamofire.request(.POST, "http://mapi.wsi.com.cn:8088//?a=GetUser", parameters: parameters, encoding: .JSON)
             .responseJSON { resp in
                 print(resp.data)
                 if let JSON = resp.result.value {
